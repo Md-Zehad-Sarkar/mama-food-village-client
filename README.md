@@ -4,13 +4,14 @@
 
 - Next js v-14.0.3
 - TypeScript v-^5
+- Material UI
 - Tailwind
 
 ## Run the project on Development
 
 - npm run dev
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project. Restaurant
 
 ## Getting Started
 
