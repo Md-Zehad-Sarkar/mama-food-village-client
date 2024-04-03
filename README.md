@@ -11,11 +11,7 @@
 
 - npm run dev
 
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org/) project. Restaurant
-=======
 This is a [Next.js](https://nextjs.org/) project. This is Restaurant Type Project
->>>>>>> development
 
 ## Getting Started
 
