@@ -100,12 +100,12 @@ const HeroSection = () => {
       </Box>
       <Button
         sx={{
-          backgroundColor: "yellow",
           position: "absolute",
           bottom: "-8px",
           left: "50%",
           justifyContent: "center",
         }}
+        style={{ backgroundColor: "yellow", fontWeight: 500 }}
       >
         Menus
       </Button>
