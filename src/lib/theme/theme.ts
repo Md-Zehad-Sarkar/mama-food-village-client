@@ -5,6 +5,7 @@ export const theme = createTheme({
   palette: {
     primary: {
       main: purple[600],
+      light: orange[500],
     },
     secondary: {
       main: orange[500],
@@ -27,9 +28,9 @@ export const theme = createTheme({
       },
       styleOverrides: {
         root: {
-          padding:'8px 4px'
-        }
-      }
+          padding: "8px 4px",
+        },
+      },
     },
   },
   typography: {

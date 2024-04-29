@@ -1,9 +1,12 @@
-import { Button, Container } from "@mui/material";
+import HeroSection from "@/components/UI/Home/HeroSection/HeroSection";
+import MenuCategories from "@/components/UI/Home/MenuCategories/MenuCategories";
+import { Container } from "@mui/material";
 
 const HomePage = () => {
   return (
     <Container>
-      <h2>mama food village</h2>
+      <HeroSection />
+      <MenuCategories />
     </Container>
   );
 };
