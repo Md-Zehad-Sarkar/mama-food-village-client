@@ -8,6 +8,7 @@ import category6 from "@/assets/images/categories/category-6.png";
 import category7 from "@/assets/images/categories/category-7.png";
 import category8 from "@/assets/images/categories/category-8.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const categories = [
   { name: "COMBO", image: category1 },
@@ -28,29 +29,35 @@ const MenuCategories = () => {
       sx={{
         display: { xs: "grid", md: "flex" },
         flexDirection: { xs: "column", md: "row" },
-        justifyContent:'center'
+        justifyContent: "center",
       }}
     >
       {categories.map((category, i) => (
-        <Box
-          key={i}
-          sx={{
-            display: { md: "flex" },
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: 1,
-            flexWrap: { md: "wrap" },
-          }}
-        >
-          <Box>
-            <Image
-              src={category.image}
-              alt="category images"
-              style={{ width: "100px", height: "80px" }}
-            />
-          </Box>
-          <Typography>{category.name}</Typography>
+        <Box key={i}>
+          <Link
+            href={`${category?.name.trim().toLowerCase().replace(/\s+/g, "-")}`}
+          >
+            <Box
+              sx={{
+                display: { md: "flex" },
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: 1,
+                flexWrap: { md: "wrap" },
+              }}
+            >
+              <Box>
+                <Image
+                  src={category.image}
+                  alt="category images"
+                  style={{ width: "100px", height: "80px" }}
+                />
+              </Box>
+
+              <Typography>{category.name}</Typography>
+            </Box>
+          </Link>
         </Box>
       ))}
     </Stack>

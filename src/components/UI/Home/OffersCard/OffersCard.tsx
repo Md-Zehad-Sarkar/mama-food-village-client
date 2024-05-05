@@ -26,7 +26,7 @@ const OffersCard = () => {
               <Typography sx={{ font: "18px", mt: 2, mb: 1 }}>
                 NEW PHENOMENON <br /> BURGER TASTE
               </Typography>
-              <Typography variant="h6" component="h6">
+              <Typography variant="h6" component="h6" color={'primary.main'}>
                 $12.90
               </Typography>
             </Box>
@@ -54,7 +54,7 @@ const OffersCard = () => {
               <Typography sx={{ font: "18px", mt: 2, mb: 1, color: "white" }}>
                 SAVE ROOM. <br /> WE MADE SALATS
               </Typography>
-              <Typography variant="h6" component="h6" color="yellow">
+              <Typography variant="h6" component="h6" color="primary.main">
                 $15.99
               </Typography>
             </Box>
@@ -78,7 +78,7 @@ const OffersCard = () => {
               </Typography>
               <Button
                 sx={{
-                  color: "yellow",
+                  color: "primary.main",
                   fontWeight: 600,
                   ":hover": { color: "black" },
                 }}
