@@ -8,12 +8,13 @@ const popularDishesButton = ["PIZZA", "SUSHI", "SALATS", "BURGER", "DERSEST"];
 
 const PopularDishes = () => {
   const { data, isLoading } = useGetAllFoodsQuery(undefined);
+
   if (isLoading) {
-    return "loading";
+    return "loading...";
   }
 
   return (
-    <Box my={8}>
+    <Box my={16}>
       <Typography
         variant="h4"
         component={"h2"}
@@ -29,7 +30,7 @@ const PopularDishes = () => {
       <Stack
         direction={{ xs: "column", md: "row" }}
         spacing={3}
-        my={2}
+        my={4}
         justifyContent="center"
         alignItems={"center"}
       >

@@ -1,15 +1,5 @@
 "use client";
-import {
-  Box,
-  Container,
-  Grid,
-  IconButton,
-  Menu,
-  MenuItem,
-  Stack,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { Box, Container, IconButton, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -20,7 +10,6 @@ import { useState } from "react";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const handleMenuOpen = () => {
-    <p>hi</p>;
     setMenuOpen(true);
   };
 

@@ -8,7 +8,7 @@ const HeroSectionOrderButton = () => {
   return (
     <Button
       onClick={handleOrder}
-      style={{ backgroundColor: "yellow", fontWeight: 500 }}
+      style={{ color: "primary.main", fontWeight: 500 }}
     >
       Order Now
     </Button>

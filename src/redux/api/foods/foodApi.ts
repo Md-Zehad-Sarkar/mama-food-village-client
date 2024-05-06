@@ -1,5 +1,6 @@
 import { url } from "inspector";
 import baseApi from "../baseApi";
+import { tagTypes } from "@/redux/tagTypes";
 
 const foodApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -13,6 +14,7 @@ const foodApi = baseApi.injectEndpoints({
           data: response?.data,
         };
       },
+      providesTags:[tagTypes.foods]
     }),
   }),
 });
