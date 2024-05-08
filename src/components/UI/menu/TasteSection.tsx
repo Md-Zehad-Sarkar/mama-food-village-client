@@ -1,7 +1,6 @@
 "use client";
 
 import { Box, Button, Grid, Stack, Typography } from "@mui/material";
-
 import tasteImage from "@/assets/images/heroImages.jpg";
 import Image from "next/image";
 import { useGetAllFoodsQuery } from "@/redux/api/foods/foodApi";
