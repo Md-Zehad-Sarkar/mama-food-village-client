@@ -1,4 +1,6 @@
 import MenuData from "@/components/UI/menu/MenuData";
+import ServicesSection from "@/components/UI/menu/ServicesSection";
+import TasteSection from "@/components/UI/menu/TasteSection";
 import { menuItemsCommonButton as menusItem } from "@/constant/popularDishesButton";
 import CommonItemsMenuButton from "@/utils/CommonItemsMenuButton";
 import { Box, Container, Typography } from "@mui/material";
@@ -17,6 +19,8 @@ const MenuPage = () => {
         </Typography>
         <CommonItemsMenuButton allButton={menusItem} />
         <MenuData />
+        <TasteSection />
+        <ServicesSection />
       </Box>
     </Container>
   );
