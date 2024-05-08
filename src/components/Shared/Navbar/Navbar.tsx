@@ -5,10 +5,17 @@ import Link from "next/link";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import NavAppBar from "./components/NavAppBar";
 import logo from "@/assets/logo.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [currentPath, setCurrentPath] = useState("");
+
+  useEffect(() => {
+    setCurrentPath(window.location.pathname as string);
+  }, []);
+
   const handleMenuOpen = () => {
     setMenuOpen(true);
   };
@@ -46,7 +53,10 @@ const Navbar = () => {
                   aria-haspopup="true"
                   onMouseOver={handleMenuOpen}
                   onMouseLeave={handleMenuClose}
-                  style={{ cursor: "pointer" }}
+                  style={{
+                    cursor: "pointer",
+                    // color: currentPath === "/" ? "yellow" : "black",
+                  }}
                 >
                   Home
                   {menuOpen}
@@ -57,22 +67,37 @@ const Navbar = () => {
               </Link>
             </Box>
 
-            <Typography>Menu</Typography>
-            <Typography>About</Typography>
-            <Typography>
+            <Typography
+              style={{
+                cursor: "pointer",
+                // color: currentPath === "/menu" ? "yellow" : "black",
+              }}
+              component={Link}
+              href={"/menu"}
+            >
+              Menu
+            </Typography>
+            <Typography component={Link} href={"/about"}>
+              About
+            </Typography>
+            <Typography component={Link} href={"/shop"}>
               Shop
               <IconButton size="small" aria-label="expand" color="inherit">
                 <ExpandMoreIcon />
               </IconButton>
             </Typography>
-            <Typography>Blog</Typography>
-            <Typography>
+            <Typography component={Link} href={"/blog"}>
+              Blog
+            </Typography>
+            {/* <Typography>
               Page
               <IconButton size="small" aria-label="expand" color="inherit">
                 <ExpandMoreIcon />
               </IconButton>
+            </Typography> */}
+            <Typography component={Link} href={"/contact"}>
+              Contact
             </Typography>
-            <Typography>Contact</Typography>
           </Stack>
         </Box>
         <Box>

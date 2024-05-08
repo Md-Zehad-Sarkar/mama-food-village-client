@@ -1,6 +1,6 @@
 "use client";
 import { useGetAllFoodsQuery } from "@/redux/api/foods/foodApi";
-import { Box, Button, Grid, Stack, Typography } from "@mui/material";
+import { Box, Button, Grid,  Typography } from "@mui/material";
 import PopularDishesCard from "./PopularDishesCard";
 import { menuItemsCommonButton as popularDishesButton } from "@/constant/popularDishesButton";
 import CommonItemsMenuButton from "@/utils/CommonItemsMenuButton";
@@ -28,6 +28,7 @@ const PopularDishes = () => {
       </Typography>
 
       <CommonItemsMenuButton allButton={popularDishesButton} />
+      
       <Grid container spacing={4} mt={4}>
         {data?.data?.map((food: any) => (
           <Grid item xs={12} sm={12} md={6} lg={4} key={food?._id}>
