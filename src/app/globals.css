@@ -11,3 +11,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.slick-slide > div {
+  margin: 0 10px;
+}

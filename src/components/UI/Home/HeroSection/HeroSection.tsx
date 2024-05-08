@@ -60,7 +60,7 @@ const HeroSection = () => {
               marginBottom: 2,
             }}
           >
-            Medium-2 topping* Pizza
+            Medium-2 topping * Pizza
           </Typography>
           <Typography
             variant="h6"
@@ -91,6 +91,7 @@ const HeroSection = () => {
                 color: "green",
                 fontWeight: 800,
                 backgroundColor: "black",
+                padding: 1,
               }}
             >
               $12.99
@@ -99,13 +100,14 @@ const HeroSection = () => {
         </Box>
       </Box>
       <Button
+        variant="contained"
         sx={{
-          backgroundColor: "yellow",
           position: "absolute",
           bottom: "-8px",
           left: "50%",
           justifyContent: "center",
         }}
+        style={{ color: "primary.main", fontWeight: 500 }}
       >
         Menus
       </Button>
