@@ -7,6 +7,7 @@ import Providers from "@/lib/Providers/Providers";
 import Footer from "@/components/Shared/Footer/Footer";
 import CopyRightFooter from "@/components/Shared/Footer/CopyRightFooter";
 import React from "react";
+import { Box } from "@mui/material";
 
 // import dynamic from "next/dynamic";
 
@@ -31,7 +32,7 @@ export default function RootLayout({
         <Providers>
           <AppRouterCacheProvider>
             <Navbar />
-            {children}
+            <Box sx={{ minHeight: "screen" }}>{children}</Box>
             <Footer />
             <CopyRightFooter />
           </AppRouterCacheProvider>

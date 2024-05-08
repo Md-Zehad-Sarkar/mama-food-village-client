@@ -1,6 +1,6 @@
 "use client";
 import { useGetAllFoodsQuery } from "@/redux/api/foods/foodApi";
-import { Box, Button, Grid, Stack, Typography } from "@mui/material";
+import { Box, Button, Grid,  Typography } from "@mui/material";
 import PopularDishesCard from "./PopularDishesCard";
 import { menuItemsCommonButton as popularDishesButton } from "@/constant/popularDishesButton";
 import CommonItemsMenuButton from "@/utils/CommonItemsMenuButton";
