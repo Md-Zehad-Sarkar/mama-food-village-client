@@ -2,11 +2,8 @@
 import { useGetAllFoodsQuery } from "@/redux/api/foods/foodApi";
 import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import PopularDishesCard from "./PopularDishesCard";
-import Link from "next/link";
 import { menuItemsCommonButton as popularDishesButton } from "@/constant/popularDishesButton";
 import CommonItemsMenuButton from "@/utils/CommonItemsMenuButton";
-
-// const popularDishesButton = ["PIZZA", "SUSHI", "SALATS", "BURGER", "DERSEST"];
 
 const PopularDishes = () => {
   const { data, isLoading } = useGetAllFoodsQuery(undefined);
@@ -29,31 +26,7 @@ const PopularDishes = () => {
       >
         Popular Dishes
       </Typography>
-      {/* <Stack
-        direction={{ xs: "column", md: "row" }}
-        spacing={3}
-        my={4}
-        justifyContent="center"
-        alignItems={"center"}
-      >
-        {popularDishesButton.map((button, i) => (
-          <Button
-            key={i}
-            variant="outlined"
-            sx={{
-              borderRadius: "20px",
-              padding: "15px",
-              width: "120px",
-              fontWeight: 400,
-              letterSpacing: 2,
-              color: "black",
-              ":hover": { bgcolor: "primary.main" },
-            }}
-          >
-            <Link href={`${button.toLowerCase()}`}>{button}</Link>
-          </Button>
-        ))}
-      </Stack> */}
+
       <CommonItemsMenuButton allButton={popularDishesButton} />
       <Grid container spacing={4} mt={4}>
         {data?.data?.map((food: any) => (
