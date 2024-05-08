@@ -1,15 +1,15 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
 import Link from "next/link";
+import CopyRightFooter from "./CopyRightFooter";
 
 const Footer = () => {
   return (
-    <Container sx={{ bgcolor: "black", py: 10, my: 6, color: "white" }}>
+    <Container sx={{ bgcolor: "black", color: "white" }}>
       <Typography
         fontWeight={700}
         variant="h3"
         component={"h2"}
         textAlign={"center"}
-        mb={6}
       >
         MAMA
         <Typography
@@ -82,6 +82,7 @@ const Footer = () => {
           </Typography>
         </Box>
       </Stack>
+      {/* <CopyRightFooter /> */}
     </Container>
   );
 };

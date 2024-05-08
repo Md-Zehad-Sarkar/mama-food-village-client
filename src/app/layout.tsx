@@ -5,6 +5,8 @@ import Navbar from "@/components/Shared/Navbar/Navbar";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import Providers from "@/lib/Providers/Providers";
 import Footer from "@/components/Shared/Footer/Footer";
+import CopyRightFooter from "@/components/Shared/Footer/CopyRightFooter";
+import { Container } from "@mui/material";
 // import dynamic from "next/dynamic";
 
 // const Navbar=dynamic(()=>import("@/components/Shared/Navbar/Navbar"),{ssr:false})
@@ -29,7 +31,10 @@ export default function RootLayout({
           <AppRouterCacheProvider>
             <Navbar />
             {children}
-            <Footer />
+            <>
+              <Footer />
+              <CopyRightFooter />
+            </>
           </AppRouterCacheProvider>
         </Providers>
       </body>
