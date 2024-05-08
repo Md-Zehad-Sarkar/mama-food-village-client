@@ -1,6 +1,5 @@
 import { Button, Container, Stack } from "@mui/material";
 import Link from "next/link";
-import React from "react";
 
 const NotFoundPage = () => {
   return (
