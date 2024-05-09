@@ -77,7 +77,7 @@ const Navbar = () => {
             >
               Menu
             </Typography>
-            <Typography component={Link} href={"/about"}>
+            <Typography component={Link} href={"/about-us"}>
               About
             </Typography>
             <Typography component={Link} href={"/shop"}>
