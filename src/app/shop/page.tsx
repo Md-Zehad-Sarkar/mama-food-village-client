@@ -2,6 +2,8 @@ import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import GridViewIcon from "@mui/icons-material/GridView";
 import ListIcon from "@mui/icons-material/List";
 import ShopItems from "@/components/UI/Shop/ShopItems";
+import CategoriesItems from "@/components/UI/Shop/CategoriesItems";
+import SearchButton from "@/components/UI/Shop/SearchButton";
 
 const ShopPage = () => {
   return (
@@ -25,7 +27,10 @@ const ShopPage = () => {
           </Box>
         </Grid>
         <Grid item lg={3} sx={{ display: { xs: "none", lg: "block" } }}>
-          <Box sx={{ bgcolor: "primary.main" }}>category here</Box>
+          <Box sx={{ bgcolor: "primary.main", borderRadius: "5px" }}>
+            <CategoriesItems />
+          </Box>
+          <SearchButton />
         </Grid>
       </Grid>
     </Container>

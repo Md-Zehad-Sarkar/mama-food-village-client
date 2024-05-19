@@ -9,7 +9,7 @@ import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 const ShopItems = () => {
   const { data, isLoading } = useGetAllFoodsQuery({});
   const shopItems = data?.data;
-  console.log(shopItems);
+
   return (
     <Box mt={10}>
       <Grid container spacing={4}>
@@ -32,7 +32,14 @@ const ShopItems = () => {
                 />
               </Box>
               <Box sx={{ borderBottom: "1px solid" }}></Box>
-              <Box sx={{ bgcolor: "#F3f3f3", padding: 2,borderBottomLeftRadius:'15px',borderBottomRightRadius:'15px' }}>
+              <Box
+                sx={{
+                  bgcolor: "#F3f3f3",
+                  padding: 2,
+                  borderBottomLeftRadius: "15px",
+                  borderBottomRightRadius: "15px",
+                }}
+              >
                 <Ratings value={5} />
                 <Typography variant="h6" component={"h5"} fontWeight={600}>
                   {item?.name}
