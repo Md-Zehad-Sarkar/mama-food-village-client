@@ -49,6 +49,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const SearchButton = () => {
   // need to here load data for searching
+
   return (
     <Box>
       <Button
@@ -69,9 +70,31 @@ const SearchButton = () => {
           />
         </Search>
       </Button>
-      <Box sx={{ marginTop: '80px' }}>
-        <Typography variant="h6" component={'h5'} mb={1}>Filter By Price</Typography>
+      <Box sx={{ marginTop: "80px" }}>
+        <Typography variant="h6" component={"h5"}>
+          Filter By Price
+        </Typography>
+        <Box
+          sx={{
+            border: "1px solid #F3F3F3",
+            borderStyle: "dashed",
+            marginBottom: 1,
+          }}
+        ></Box>
         <PriceFiltering price={200} />
+      </Box>
+      <Box sx={{ marginTop: "60px" }}>
+        <Typography variant="h6" component={"h5"}>
+          Best Deals
+        </Typography>
+        <Box
+          sx={{
+            border: "1px solid #F3F3F3",
+            borderStyle: "dashed",
+            marginBottom: 1,
+          }}
+        ></Box>
+        {/* Best deals items load here */}
       </Box>
     </Box>
   );

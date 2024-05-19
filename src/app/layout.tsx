@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Shared/Navbar/Navbar";
+
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import Providers from "@/lib/Providers/Providers";
-import Footer from "@/components/Shared/Footer/Footer";
-import CopyRightFooter from "@/components/Shared/Footer/CopyRightFooter";
+
 import React from "react";
-import { Box } from "@mui/material";
-
-// import dynamic from "next/dynamic";
-
-// const Navbar=dynamic(()=>import("@/components/Shared/Navbar/Navbar"),{ssr:false})
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,12 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <AppRouterCacheProvider>
-            <Navbar />
-            <Box sx={{ minHeight: "screen" }}>{children}</Box>
-            <Footer />
-            <CopyRightFooter />
-          </AppRouterCacheProvider>
+          <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
         </Providers>
       </body>
     </html>

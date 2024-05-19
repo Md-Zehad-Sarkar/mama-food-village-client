@@ -57,12 +57,13 @@ const Navbar = () => {
                     cursor: "pointer",
                     // color: currentPath === "/" ? "yellow" : "black",
                   }}
+                  fontWeight={600}
                 >
                   Home
-                  {menuOpen}
-                  <IconButton size="small" aria-label="expand" color="inherit">
+                  {/* {menuOpen} */}
+                  {/* <IconButton size="small" aria-label="expand" color="inherit">
                     <ExpandMoreIcon />
-                  </IconButton>
+                  </IconButton> */}
                 </Typography>
               </Link>
             </Box>
@@ -74,28 +75,24 @@ const Navbar = () => {
               }}
               component={Link}
               href={"/menu"}
+              fontWeight={600}
             >
               Menu
             </Typography>
-            <Typography component={Link} href={"/about-us"}>
+            <Typography fontWeight={600} component={Link} href={"/about-us"}>
               About
             </Typography>
-            <Typography component={Link} href={"/shop"}>
+            <Typography fontWeight={600} component={Link} href={"/shop"}>
               Shop
-              <IconButton size="small" aria-label="expand" color="inherit">
+              {/* <IconButton size="small" aria-label="expand" color="inherit">
                 <ExpandMoreIcon />
-              </IconButton>
+              </IconButton> */}
             </Typography>
-            <Typography component={Link} href={"/blog"}>
+            {/* <Typography component={Link} href={"/blog"}>
               Blog
-            </Typography>
-            {/* <Typography>
-              Page
-              <IconButton size="small" aria-label="expand" color="inherit">
-                <ExpandMoreIcon />
-              </IconButton>
             </Typography> */}
-            <Typography component={Link} href={"/contact"}>
+
+            <Typography fontWeight={600} component={Link} href={"/contact"}>
               Contact
             </Typography>
           </Stack>
