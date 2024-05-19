@@ -1,8 +1,14 @@
+// 'use client'
 import { Box, Container, Grid, Typography } from "@mui/material";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import PlaceIcon from "@mui/icons-material/Place";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import Link from "next/link";
+import SendMessage from "@/components/UI/contact/SendMessage";
+// import dynamic from "next/dynamic";
+// const SendMessage = dynamic(
+//   () => import("@/components/UI/contact/SendMessage")
+// );
 
 const ContactPage = () => {
   return (
@@ -62,10 +68,16 @@ const ContactPage = () => {
             </Grid>
             <Grid item xs={12} md={12} lg={6}>
               <Box>
-                <Typography variant="h4" component="h4" fontWeight={600}>
+                <Typography
+                  variant="h4"
+                  component="h4"
+                  mb={4}
+                  fontWeight={600}
+                  textAlign={"center"}
+                >
                   Send us a message
-                  
                 </Typography>
+                <SendMessage />
               </Box>
             </Grid>
           </Grid>

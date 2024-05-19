@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Navbar from "@/components/Shared/Navbar/Navbar";
+// import Navbar from "@/components/Shared/Navbar/Navbar";
 import Footer from "@/components/Shared/Footer/Footer";
 import CopyRightFooter from "@/components/Shared/Footer/CopyRightFooter";
 import React from "react";
 import { Box } from "@mui/material";
 
-// import dynamic from "next/dynamic";
+import dynamic from "next/dynamic";
 
-// const Navbar=dynamic(()=>import("@/components/Shared/Navbar/Navbar"),{ssr:false})
+const Navbar=dynamic(()=>import("@/components/Shared/Navbar/Navbar"),{ssr:false})
 
 const inter = Inter({ subsets: ["latin"] });
 

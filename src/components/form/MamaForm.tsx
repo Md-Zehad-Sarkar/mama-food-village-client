@@ -15,7 +15,7 @@ type TFormProps = {
 
 const MamaForm = ({ children, onSubmit: submit }: TFormProps) => {
   const methods = useForm<any>();
-  const { handleSubmit, reset } = method;
+  const { handleSubmit, reset } = methods;
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     submit(data);
     reset();
