@@ -5,10 +5,7 @@ import PlaceIcon from "@mui/icons-material/Place";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import Link from "next/link";
 import SendMessage from "@/components/UI/contact/SendMessage";
-// import dynamic from "next/dynamic";
-// const SendMessage = dynamic(
-//   () => import("@/components/UI/contact/SendMessage")
-// );
+import GoogleMapLocation from "@/components/UI/contact/GoogleMapLocation";
 
 const ContactPage = () => {
   return (
@@ -64,7 +61,7 @@ const ContactPage = () => {
         <Box sx={{ marginTop: "50px" }}>
           <Grid container spacing={1}>
             <Grid item xs={12} md={12} lg={6}>
-              Geo location
+              <GoogleMapLocation />
             </Grid>
             <Grid item xs={12} md={12} lg={6}>
               <Box>
