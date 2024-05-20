@@ -8,7 +8,7 @@ type TInputProps = {
   label?: string;
   size?: "small" | "medium";
   variant?: "outlined" | "standard" | "filled";
-  fullWidth: boolean;
+  fullWidth?: boolean;
   sx?: SxProps;
   placeholder?: string;
   required?: boolean;
@@ -20,7 +20,7 @@ const MamaInput = ({
   label,
   variant = "outlined",
   size = "small",
-  fullWidth,
+  fullWidth=false,
   required = false,
   sx,
 }: TInputProps) => {
