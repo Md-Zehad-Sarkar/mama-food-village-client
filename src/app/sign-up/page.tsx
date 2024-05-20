@@ -44,7 +44,7 @@ const SignUpPage = () => {
                 margin: "auto",
                 position: "relative",
                 color: "white",
-                borderRadius:'10px'
+                borderRadius: "10px",
               }}
             />
           </Box>
