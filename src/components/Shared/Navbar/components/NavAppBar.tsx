@@ -1,9 +1,10 @@
 import { Box, IconButton, Stack, Typography } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+// import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import BikeScooterIcon from "@mui/icons-material/BikeScooter";
+import LoginModal from "@/components/modal/LoginModal";
 
 const NavAppBar = () => {
   return (
@@ -26,9 +27,10 @@ const NavAppBar = () => {
         <IconButton size="medium" aria-label="search" color="inherit">
           <SearchIcon />
         </IconButton>
-        <IconButton size="medium" aria-label="person" color="inherit">
-          <AccountCircleIcon />
-        </IconButton>
+        <Box>
+          <LoginModal />
+        </Box>
+
         <IconButton size="medium" aria-label="favorite" color="inherit">
           <FavoriteIcon />
         </IconButton>
