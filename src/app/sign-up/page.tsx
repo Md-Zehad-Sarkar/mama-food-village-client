@@ -18,7 +18,7 @@ const SignUpPage = () => {
   const router = useRouter();
   const onSubmit = async (data: FieldValues) => {
     const res = await signUpUser(data);
-
+    //if response success show a toast and redirect to home page
     if (res.success) {
       toast.success("You have successfully Registered");
       router.push("/");
