@@ -77,7 +77,8 @@ export default function LoginModal() {
               sx={{ marginTop: "15px" }}
             />
             <Typography onClick={HandleShow} component={Button} mt={2}>
-              <VpnKeyIcon sx={{ marginRight: 1 }} /> Show Password
+              <VpnKeyIcon sx={{ marginRight: 1 }} />{" "}
+              {showPass ? "Hide" : "Show"} Password
             </Typography>
           </DialogContent>
           <DialogActions>

@@ -1,0 +1,13 @@
+0000000000000000000000000000000000000000 8ff5f4505a2d1395333c747529c965e49756aab1 Md-Zehad-Sarkar <zehadsarkar22@outlook.com> 1715789925 +0600	clone: from https://github.com/Md-Zehad-Sarkar/mama-food-village-client.git
+8ff5f4505a2d1395333c747529c965e49756aab1 264b0894b46b5e488efa24d01c0c7d736f75e664 Md-Zehad-Sarkar <zehadsarkar22@outlook.com> 1715793586 +0600	commit: shop route create and added page
+264b0894b46b5e488efa24d01c0c7d736f75e664 84a14dfd084092ef1fdc2728c6762c869a3aed80 Md-Zehad-Sarkar <zehadsarkar22@outlook.com> 1715793614 +0600	checkout: moving from main to development
+84a14dfd084092ef1fdc2728c6762c869a3aed80 264b0894b46b5e488efa24d01c0c7d736f75e664 Md-Zehad-Sarkar <zehadsarkar22@outlook.com> 1715793656 +0600	pull origin main: Fast-forward
+264b0894b46b5e488efa24d01c0c7d736f75e664 cff73373990a1d248f11b1a061bcabb6dc855ce4 Md-Zehad-Sarkar <zehadsarkar22@outlook.com> 1715797230 +0600	commit: shop items added but need to fix style
+cff73373990a1d248f11b1a061bcabb6dc855ce4 cdf6f236615439072ae8a52b68e1e6c023f31773 Md-Zehad-Sarkar <zehadsarkar22@outlook.com> 1715862604 +0600	commit: card style fixed for shop items
+cdf6f236615439072ae8a52b68e1e6c023f31773 6e59038e46d686272056f5352d630a59fb2cff0a Md-Zehad-Sarkar <zehadsarkar22@outlook.com> 1716098092 +0600	commit: search button and filter added on shop items
+6e59038e46d686272056f5352d630a59fb2cff0a 7e401c37f26a1b62cae11137fb0fbeca4bd73e12 Md-Zehad-Sarkar <zehadsarkar22@outlook.com> 1716105757 +0600	commit: reusable form create success
+7e401c37f26a1b62cae11137fb0fbeca4bd73e12 072bd9dfce02e7393e60a6bb9623140abda84ab0 Md-Zehad-Sarkar <zehadsarkar22@outlook.com> 1716130823 +0600	commit: reusable form, input and text field added
+072bd9dfce02e7393e60a6bb9623140abda84ab0 e6906980f32e3cbf116eccd64cdd67f78aaf9a71 Md-Zehad-Sarkar <zehadsarkar22@outlook.com> 1716142558 +0600	commit: google map location added successful
+e6906980f32e3cbf116eccd64cdd67f78aaf9a71 8b9d7933618cf6c98582a84bbe0e54eaf6af0d88 Md-Zehad-Sarkar <zehadsarkar22@outlook.com> 1716190495 +0600	commit: login form create with modal success
+8b9d7933618cf6c98582a84bbe0e54eaf6af0d88 bc7ce24080eb4a846ba285378266ab3582fba9c2 Md-Zehad-Sarkar <zehadsarkar22@outlook.com> 1716196313 +0600	commit: sign up page added and design success
+bc7ce24080eb4a846ba285378266ab3582fba9c2 1a6e5d228c5471604b6a83284e79746772594e05 Md-Zehad-Sarkar <zehadsarkar22@outlook.com> 1716216938 +0600	commit: shopping cart added

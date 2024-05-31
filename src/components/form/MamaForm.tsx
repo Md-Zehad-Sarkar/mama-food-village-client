@@ -1,6 +1,5 @@
 "use client";
 
-import { SxProps } from "@mui/material";
 import { ReactNode } from "react";
 import {
   FieldValues,
@@ -9,14 +8,35 @@ import {
   useForm,
 } from "react-hook-form";
 
+type TFormConfig = {
+  resolver?: any;
+  defaultValues?: Record<string, any>;
+};
+
 type TFormProps = {
   children: ReactNode;
   onSubmit: SubmitHandler<FieldValues>;
   style?: any;
-};
+} & TFormConfig;
 
-const MamaForm = ({ children, onSubmit: submit, style }: TFormProps) => {
-  const methods = useForm<any>();
+const MamaForm = ({
+  children,
+  onSubmit: submit,
+  style,
+  resolver,
+  defaultValues,
+}: TFormProps) => {
+  const formConfig: TFormConfig = {};
+
+  if (resolver) {
+    formConfig["resolver"] = resolver;
+  }
+
+  if (defaultValues) {
+    formConfig["defaultValues"] = defaultValues;
+  }
+
+  const methods = useForm(formConfig);
 
   const { handleSubmit, reset } = methods;
 

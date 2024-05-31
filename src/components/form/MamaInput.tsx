@@ -20,7 +20,7 @@ const MamaInput = ({
   label,
   variant = "outlined",
   size = "small",
-  fullWidth=false,
+  fullWidth = false,
   required = false,
   sx,
 }: TInputProps) => {
@@ -29,9 +29,8 @@ const MamaInput = ({
     <Controller
       name={name}
       control={control}
-      render={({ field }) => (
+      render={({ field, fieldState: { error } }) => (
         <>
-         
           <TextField
             {...field}
             type={type}
@@ -42,6 +41,8 @@ const MamaInput = ({
             required={required}
             placeholder={label}
             sx={sx}
+            error={!error?.message}
+            helperText={error?.message}
           />
         </>
       )}

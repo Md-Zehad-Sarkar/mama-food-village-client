@@ -7,10 +7,22 @@ import React from "react";
 import { FieldValues } from "react-hook-form";
 import { loginBgImage } from "@/constant/popularDishesButton";
 import registerImage from "@/assets/register.png";
+import LoginModal from "@/components/modal/LoginModal";
+import { signUpUser } from "@/services/signup";
+import { signUpValidation } from "./validation";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 const SignUpPage = () => {
-  const onSubmit = (data: FieldValues) => {
-    console.log(data);
+  const router = useRouter();
+  const onSubmit = async (data: FieldValues) => {
+    const res = await signUpUser(data);
+
+    if (res.success) {
+      toast.success("You have successfully Registered");
+      router.push("/");
+    }
   };
   return (
     <Container>
@@ -73,6 +85,7 @@ const SignUpPage = () => {
               </Typography>
             </Typography>
             <MamaForm
+              resolver={zodResolver(signUpValidation)}
               onSubmit={onSubmit}
               style={{
                 maxWidth: "350px",
@@ -113,6 +126,13 @@ const SignUpPage = () => {
                 fullWidth={true}
                 sx={{ marginBottom: 2 }}
               />
+              <Box sx={{ marginBottom: 2 }}>
+                <Typography>
+                  Already Have An Account? Please
+                  <LoginModal />
+                </Typography>
+              </Box>
+
               <Button type="submit" variant="contained" sx={{ color: "white" }}>
                 Sign Up
               </Button>

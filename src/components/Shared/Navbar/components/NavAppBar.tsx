@@ -5,7 +5,6 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import BikeScooterIcon from "@mui/icons-material/BikeScooter";
 import LoginModal from "@/components/modal/LoginModal";
 import Link from "next/link";
-import ShoppingCart from "./ShoppingCart";
 
 const NavAppBar = () => {
   return (
