@@ -14,6 +14,7 @@ import { FieldValues } from "react-hook-form";
 import MamaForm from "../form/MamaForm";
 import MamaInput from "../form/MamaInput";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
+import { userLogin } from "@/services/login";
 
 export default function LoginModal() {
   const [open, setOpen] = React.useState(false);
@@ -32,8 +33,10 @@ export default function LoginModal() {
     setShowPass(!showPass);
   };
 
-  const onSubmit = (data: FieldValues) => {
-    console.log(data);
+  const onSubmit = async (data: FieldValues) => {
+    const res = await userLogin(data);
+    console.log("client res", res);
+    handleClose();
   };
 
   return (
@@ -61,7 +64,7 @@ export default function LoginModal() {
             </DialogContentText>
 
             <MamaInput
-              type="email"
+              // type="email"
               name="email"
               label="Email Address"
               placeholder="Type Your Email"

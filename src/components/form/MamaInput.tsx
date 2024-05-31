@@ -4,7 +4,7 @@ import { Controller, useFormContext } from "react-hook-form";
 
 type TInputProps = {
   name: string;
-  type: string;
+  type?: string;
   label?: string;
   size?: "small" | "medium";
   variant?: "outlined" | "standard" | "filled";

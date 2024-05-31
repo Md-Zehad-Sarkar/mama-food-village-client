@@ -21,12 +21,10 @@ export const signUpUser = async (values: FieldValues) => {
     if (!result?.success) {
       throw new Error("Sign up failed");
     }
-    console.log("result result....", result);
+
     const { data, ...restData } = result;
     return restData;
-  
   } catch (error) {
-    console.log(error);
     if (error instanceof Error) {
       return { success: false, message: error.message };
     } else {
