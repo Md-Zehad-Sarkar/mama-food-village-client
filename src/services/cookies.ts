@@ -9,3 +9,7 @@ export const getTokenCookies = async () => {
   const accessToken = cookies().get("accessToken");
   return accessToken;
 };
+
+export const deleteTokenCookies = () => {
+  cookies().delete("accessToken");
+};

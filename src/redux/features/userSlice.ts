@@ -11,7 +11,7 @@ type User = {
   user: TUser | null;
 };
 
-const userInitialState:User = {
+const userInitialState: User = {
   user: null,
 };
 
@@ -22,9 +22,12 @@ export const userSlice = createSlice({
     addUserInfo: (state, action: PayloadAction<TUser>) => {
       state.user = action.payload;
     },
+    removeUserInfo: (state) => {
+      state.user = null;
+    },
   },
 });
 
-export const { addUserInfo } = userSlice.actions;
+export const { addUserInfo, removeUserInfo } = userSlice.actions;
 
 export default userSlice.reducer;
