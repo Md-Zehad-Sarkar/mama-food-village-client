@@ -16,11 +16,15 @@ import MamaInput from "../form/MamaInput";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import { userLogin } from "@/services/login";
 import { useRouter } from "next/navigation";
+import { useAppDispatch } from "@/redux/hooks";
+import { decodedUser } from "@/utils/decodedUser";
+import { addUserInfo } from "@/redux/features/userSlice";
 
 export default function LoginModal() {
   const [open, setOpen] = React.useState(false);
   const [showPass, setShowPass] = React.useState(false);
   const router = useRouter();
+  const dispatch = useAppDispatch();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -39,6 +43,9 @@ export default function LoginModal() {
   const onSubmit = async (data: FieldValues) => {
     const res = await userLogin(data);
     if (res.success) {
+      const userData = decodedUser(res.data.accessToken);
+      const { iat, exp, ...users } = userData;
+      dispatch(addUserInfo(users));
       router.push("/");
     }
     handleClose();

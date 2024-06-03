@@ -1,12 +1,15 @@
-import { Box, IconButton, Stack, Typography } from "@mui/material";
+import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import BikeScooterIcon from "@mui/icons-material/BikeScooter";
 import LoginModal from "@/components/modal/LoginModal";
 import Link from "next/link";
+import { useAppSelector } from "@/redux/hooks";
 
 const NavAppBar = () => {
+  const { user } = useAppSelector((state) => state.user);
+  console.log("user", user);
   return (
     <Box>
       <Stack
@@ -27,9 +30,13 @@ const NavAppBar = () => {
         <IconButton size="medium" aria-label="search" color="inherit">
           <SearchIcon />
         </IconButton>
-        <Box>
-          <LoginModal />
-        </Box>
+        {user && user.email ? (
+          <Button>Logout</Button>
+        ) : (
+          <Box>
+            <LoginModal />
+          </Box>
+        )}
 
         <IconButton size="medium" aria-label="favorite" color="inherit">
           <Link href={"/white-list"}>
