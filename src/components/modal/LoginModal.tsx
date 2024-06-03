@@ -15,10 +15,12 @@ import MamaForm from "../form/MamaForm";
 import MamaInput from "../form/MamaInput";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import { userLogin } from "@/services/login";
+import { useRouter } from "next/navigation";
 
 export default function LoginModal() {
   const [open, setOpen] = React.useState(false);
   const [showPass, setShowPass] = React.useState(false);
+  const router = useRouter();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -35,6 +37,9 @@ export default function LoginModal() {
 
   const onSubmit = async (data: FieldValues) => {
     const res = await userLogin(data);
+    if (res.success) {
+      router.push("/");
+    }
     handleClose();
   };
 
