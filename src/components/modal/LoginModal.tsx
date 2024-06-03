@@ -37,15 +37,11 @@ export default function LoginModal() {
 
   // user login function
   const onSubmit = async (data: FieldValues) => {
-    try {
-      const res = await userLogin(data);
-      if (res.success) {
-        router.push("/");
-      }
-      handleClose();
-    } catch (error) {
-      console.log("login error", error);
+    const res = await userLogin(data);
+    if (res.success) {
+      router.push("/");
     }
+    handleClose();
   };
 
   return (
