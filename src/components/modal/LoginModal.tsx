@@ -35,7 +35,6 @@ export default function LoginModal() {
 
   const onSubmit = async (data: FieldValues) => {
     const res = await userLogin(data);
-    console.log("client res", res);
     handleClose();
   };
 

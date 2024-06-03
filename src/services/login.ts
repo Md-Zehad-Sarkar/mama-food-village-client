@@ -4,7 +4,6 @@ import { FieldValues } from "react-hook-form";
 import { setTokenCookies } from "./cookies";
 
 export const userLogin = async (values: FieldValues) => {
-  console.log(values);
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER_API}/api/v1/login`,
     {
@@ -16,15 +15,16 @@ export const userLogin = async (values: FieldValues) => {
       credentials: "include",
     }
   );
+
   if (!res.ok) {
     throw new Error("Login failed. Please try again");
   }
   const userInfo = await res.json();
-  console.log("server userInfo", userInfo);
+
   const { accessToken } = userInfo.data;
-  
+
   if (accessToken) {
-    setTokenCookies(accessToken, { redirect: "/" });
+    setTokenCookies(accessToken);
     return userInfo;
   }
 

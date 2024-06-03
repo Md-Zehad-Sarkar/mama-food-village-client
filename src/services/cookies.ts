@@ -1,10 +1,6 @@
 "use server";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
-export const setTokenCookies = (token: string, option?: any) => {
+export const setTokenCookies = (token: string) => {
   cookies().set("accessToken", token);
-  if (option && option.redirect) {
-    redirect(option.redirect);
-  }
 };
