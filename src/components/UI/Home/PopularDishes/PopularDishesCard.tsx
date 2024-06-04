@@ -1,10 +1,29 @@
-import { Box, Button, Card, CardContent, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Stack,
+  Typography,
+} from "@mui/material";
 import Image from "next/image";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Ratings from "@/utils/Ratings";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import { useState } from "react";
+import { useAppDispatch } from "@/redux/hooks";
+import { addWhiteListedProduct } from "@/redux/features/whiteListSlice";
+import { TFood } from "@/types/products.type";
 
 const PopularDishesCard = ({ food }: any) => {
+  const [isBgColor, setIsBgColor] = useState(false);
+
+  const dispatch = useAppDispatch();
+
+  const handleWhiteList = (food: TFood) => {
+    setIsBgColor(true);
+    dispatch(addWhiteListedProduct(food));
+  };
   return (
     <Card
       sx={{
@@ -13,7 +32,20 @@ const PopularDishesCard = ({ food }: any) => {
         position: "relative",
       }}
     >
-      <FavoriteBorderIcon sx={{ position: "absolute", right: 4, top: 4 }} />
+      <Button
+        onClick={() => handleWhiteList(food)}
+        variant="outlined"
+        sx={{
+          position: "absolute",
+          right: 4,
+          top: 4,
+          height: "30px",
+          ":hover": { background: "black" },
+          bgcolor: isBgColor ? "black" : "white",
+        }}
+      >
+        <FavoriteBorderIcon />
+      </Button>
       <Box
         sx={{
           width: "300px",
