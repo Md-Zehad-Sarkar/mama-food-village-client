@@ -27,15 +27,12 @@ const whiteListSlice = createSlice({
     addWhiteListedProduct: (state, action: PayloadAction<TInitialProduct>) => {
       const products = action.payload;
 
-      const existingProduct = state.products.findIndex(
+      const existingProduct = state.products.find(
         (product) => product._id === products?._id
       );
 
-      if (existingProduct !== -1) {
-        state.products[existingProduct].quantity =
-          (state.products[existingProduct].quantity || 0) + 1;
-      } else {
-        state.products.push({ ...products, quantity: 1 });
+      if (!existingProduct) {
+        state.products.push({ ...products });
       }
     },
   },
