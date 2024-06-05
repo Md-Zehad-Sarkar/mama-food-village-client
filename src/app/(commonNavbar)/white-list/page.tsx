@@ -12,9 +12,10 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import { useAppSelector } from "@/redux/hooks";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Column {
-  id: "images" | "items" | "actions";
+  id: "images" | "items" | "price" | "actions";
   label: string;
   minWidth?: number;
   align?: "center";
@@ -24,6 +25,7 @@ interface Column {
 const columns: readonly Column[] = [
   { id: "images", label: "Images", minWidth: 170 },
   { id: "items", label: "Items", minWidth: 170 },
+  { id: "price", label: "Price", minWidth: 170 },
 
   {
     id: "actions",
@@ -94,6 +96,14 @@ const WhiteListPage = () => {
                             </TableCell>
                             <TableCell>
                               <Typography>{product.price}</Typography>
+                            </TableCell>
+                            <TableCell>
+                              <Typography
+                                href={`/shop/${product._id}`}
+                                component={Link}
+                              >
+                                View Details
+                              </Typography>
                             </TableCell>
                           </>
                         </TableRow>
