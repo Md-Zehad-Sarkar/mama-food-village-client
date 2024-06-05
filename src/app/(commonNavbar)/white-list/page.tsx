@@ -18,7 +18,7 @@ interface Column {
   id: "images" | "items" | "price" | "actions";
   label: string;
   minWidth?: number;
-  align?: "center";
+  align?: "center" | "left" | "right";
   format?: (value: number) => string;
 }
 
@@ -31,7 +31,7 @@ const columns: readonly Column[] = [
     id: "actions",
     label: "Actions",
     minWidth: 170,
-    align: "center",
+    align: "left",
   },
 ];
 
@@ -52,13 +52,13 @@ const WhiteListPage = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+  
   return (
     <Container>
       <Box>
         <Typography variant="h5" component={"h4"} textAlign={"center"}>
           Your White Listed Products
         </Typography>
-        {/* Table */}
         <Box>
           <Paper sx={{ width: "100%", overflow: "hidden" }}>
             <TableContainer sx={{ maxHeight: 440 }}>
@@ -113,7 +113,7 @@ const WhiteListPage = () => {
               </Table>
             </TableContainer>
             <TablePagination
-              rowsPerPageOptions={[10, 25, 100]}
+              rowsPerPageOptions={[10, 20, 50]}
               component="div"
               count={products.length}
               rowsPerPage={rowsPerPage}
