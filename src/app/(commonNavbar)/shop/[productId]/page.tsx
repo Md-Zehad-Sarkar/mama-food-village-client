@@ -8,12 +8,16 @@ type TProps = {
 
 const ProductDetailsPage = async ({ params }: TProps) => {
   console.log("product id", params?.productId);
-  const res = await fetch("/", {
-    method: "GET",
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `http://localhost:5000/api/v1/foods/${params.productId}`,
+    {
+      method: "GET",
+      cache: "no-store",
+    }
+  );
 
   const product = await res.json();
+  console.log("single product", product);
 
   return (
     <Container>
