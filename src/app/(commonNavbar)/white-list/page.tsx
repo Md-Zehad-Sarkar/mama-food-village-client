@@ -10,11 +10,12 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import { useAppSelector } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import Image from "next/image";
 import Link from "next/link";
 import VisibilitySharpIcon from "@mui/icons-material/VisibilitySharp";
 import DeleteSharpIcon from "@mui/icons-material/DeleteSharp";
+import { removeWhiteListProduct } from "@/redux/features/whiteListSlice";
 
 interface Column {
   id: "images" | "items" | "price" | "actions";
@@ -41,6 +42,8 @@ const WhiteListPage = () => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
+  const dispatch = useAppDispatch();
+
   // redux store data
   const { products } = useAppSelector((state) => state.whiteListProducts);
 
@@ -53,6 +56,11 @@ const WhiteListPage = () => {
   ) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
+  };
+
+  // remove product from whiteList
+  const handleRemoveProduct = (id: string) => {
+    dispatch(removeWhiteListProduct(id));
   };
 
   return (
@@ -123,7 +131,13 @@ const WhiteListPage = () => {
                                       <VisibilitySharpIcon />
                                     </Button>
                                   </Typography>
-                                  <Typography component={Button} ml={2}>
+                                  <Typography
+                                    onClick={() =>
+                                      handleRemoveProduct(product?._id)
+                                    }
+                                    component={Button}
+                                    ml={2}
+                                  >
                                     <DeleteSharpIcon />
                                   </Typography>
                                 </Box>
