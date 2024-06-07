@@ -13,9 +13,11 @@ import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { addWhiteListedProduct } from "@/redux/features/whiteListSlice";
 import { TFood } from "@/types/products.type";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import LoadingButton from "@mui/lab/LoadingButton"; // loading button
 
 const PopularDishesCard = ({ food }: any) => {
+  const [loading, setLoading] = useState(false);
   const dispatch = useAppDispatch();
   const { products } = useAppSelector((state) => state.whiteListProducts);
 
@@ -26,7 +28,11 @@ const PopularDishesCard = ({ food }: any) => {
   );
 
   const handleWhiteList = (food: TFood) => {
+    setLoading(true);
     dispatch(addWhiteListedProduct(food));
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   };
 
   return (
@@ -37,7 +43,8 @@ const PopularDishesCard = ({ food }: any) => {
         position: "relative",
       }}
     >
-      <Button
+      <LoadingButton
+        loading={loading}
         onClick={() => handleWhiteList(food)}
         variant="outlined"
         sx={{
@@ -46,11 +53,12 @@ const PopularDishesCard = ({ food }: any) => {
           top: 4,
           height: "30px",
           ":hover": { background: "black" },
-          bgcolor: isWhiteList?._id === food._id ? "black" : "white",
+          bgcolor:
+            !loading && isWhiteList?._id === food._id ? "black" : "white",
         }}
       >
         <FavoriteBorderIcon />
-      </Button>
+      </LoadingButton>
 
       <Box
         sx={{

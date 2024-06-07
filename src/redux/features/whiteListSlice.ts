@@ -35,8 +35,15 @@ const whiteListSlice = createSlice({
         state.products.push({ ...products });
       }
     },
+
+    removeWhiteListProduct: (state, action) => {
+      state.products = state.products.filter(
+        (product) => product._id !== action.payload
+      );
+    },
   },
 });
 
-export const { addWhiteListedProduct } = whiteListSlice.actions;
+export const { addWhiteListedProduct, removeWhiteListProduct } =
+  whiteListSlice.actions;
 export default whiteListSlice.reducer;

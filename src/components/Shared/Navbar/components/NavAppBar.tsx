@@ -7,9 +7,21 @@ import LoginModal from "@/components/modal/LoginModal";
 import Link from "next/link";
 import { useAppSelector } from "@/redux/hooks";
 import LogoutButton from "./LogoutButton";
+import Badge, { BadgeProps } from "@mui/material/Badge";
+import { styled } from "@mui/material/styles";
+
+const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
+  "& .MuiBadge-badge": {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: "0 4px",
+  },
+}));
 
 const NavAppBar = () => {
   const { user } = useAppSelector((state) => state.user);
+  const { products } = useAppSelector((state) => state.whiteListProducts);
 
   return (
     <Box>
@@ -41,12 +53,16 @@ const NavAppBar = () => {
 
         <IconButton size="medium" aria-label="favorite" color="inherit">
           <Link href={"/white-list"}>
-            <FavoriteIcon />
+            <StyledBadge badgeContent={products?.length} color="secondary">
+              <FavoriteIcon />
+            </StyledBadge>
           </Link>
         </IconButton>
         <IconButton size="medium" aria-label="shopping" color="inherit">
           <Link href={"/cart"}>
-            <AddShoppingCartIcon />
+            <StyledBadge badgeContent={0} color="secondary">
+              <AddShoppingCartIcon />
+            </StyledBadge>
           </Link>
         </IconButton>
       </Stack>
