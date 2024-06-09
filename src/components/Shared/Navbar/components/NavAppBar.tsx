@@ -9,6 +9,7 @@ import { useAppSelector } from "@/redux/hooks";
 import LogoutButton from "./LogoutButton";
 import Badge, { BadgeProps } from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
+import { TFood } from "@/types/products.type";
 
 const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -21,7 +22,9 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
 
 const NavAppBar = () => {
   const { user } = useAppSelector((state) => state.user);
-  const { products } = useAppSelector((state) => state.whiteListProducts);
+  const { products }: { products: TFood[] } = useAppSelector(
+    (state) => state.whiteListProducts
+  );
 
   return (
     <Box>
