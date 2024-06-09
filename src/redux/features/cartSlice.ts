@@ -8,7 +8,8 @@ type TCart = {
   price: number;
   description: string;
   image: string;
-  quantity?: number;
+  ratings: string;
+  quantity: number;
 };
 
 type TCartState = {

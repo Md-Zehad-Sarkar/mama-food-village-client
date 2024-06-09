@@ -22,13 +22,13 @@ export type TProduct = {
 };
 
 export interface ICarts {
-  _id?: string;
-  id?: number;
+  _id: string;
+  id: string;
   name: string;
   description: string;
   price: number;
   category: string;
   image: string;
   ratings?: string;
-  quantity?: number;
+  quantity: number;
 }

@@ -7,6 +7,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 
 import { minusCartItem, plusCartItem } from "@/redux/features/cartSlice";
+import { ICarts } from "@/types/products.type";
 
 const ShoppingCart = () => {
   const { cart: carts } = useAppSelector((state) => state.carts);
@@ -23,12 +24,12 @@ const ShoppingCart = () => {
   return (
     <Container>
       <Box sx={{ maxWidth: "500px", width: "100%", margin: "auto" }}>
-        <Typography variant="h4" component={"h4"} textAlign={"center"} mb={10}>
+        <Typography variant="h4" component={"h4"} textAlign={"center"} mb={8}>
           Shopping Cart
         </Typography>
         {carts && carts.length ? (
           <Box sx={{ border: "1px solid gray", padding: 2 }}>
-            {carts?.map((cart: any) => (
+            {carts?.map((cart: ICarts) => (
               <Card key={cart?._id} sx={{ marginBottom: "15px" }}>
                 <Box
                   sx={{
