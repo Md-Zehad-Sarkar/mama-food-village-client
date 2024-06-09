@@ -5,7 +5,7 @@ import { Box, Grid } from "@mui/material";
 import MenuCard from "./MenuCard";
 
 const MenuData = () => {
-  const { data, isLoading } = useGetAllFoodsQuery(undefined);
+  const { data } = useGetAllFoodsQuery(undefined);
   const menuItems = data?.data;
 
   return (

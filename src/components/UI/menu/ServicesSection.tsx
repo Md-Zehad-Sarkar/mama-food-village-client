@@ -1,5 +1,4 @@
-import { Box, Grid, Stack, Typography } from "@mui/material";
-import Image from "next/image";
+import { Box, Grid, Typography } from "@mui/material";
 import MopedIcon from "@mui/icons-material/Moped";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";

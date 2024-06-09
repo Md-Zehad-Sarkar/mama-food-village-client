@@ -1,5 +1,8 @@
 import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
+import Button from "./components/AddToCartButton";
+import AddToCartButton from "./components/AddToCartButton";
+import BuyNowButton from "./components/BuyNowButton";
 
 type TProps = {
   params: {
@@ -8,7 +11,6 @@ type TProps = {
 };
 
 const ProductDetailsPage = async ({ params }: TProps) => {
-  console.log("product id", params?.productId);
   const res = await fetch(
     `http://localhost:5000/api/v1/foods/${params.productId}`,
     {
@@ -90,6 +92,10 @@ const ProductDetailsPage = async ({ params }: TProps) => {
               {description}
             </Typography>
           </Typography>
+          <Box sx={{ marginTop: 2 }}>
+            <AddToCartButton product={product.data} />
+            <BuyNowButton product={product.data} />
+          </Box>
         </Box>
       </Box>
     </Container>
