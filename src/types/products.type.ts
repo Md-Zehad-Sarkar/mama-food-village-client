@@ -21,14 +21,14 @@ export type TProduct = {
   ratings?: string;
 };
 
-// type TInitialProduct = {
-//   _id?: string;
-//   id?: number;
-//   name: string;
-//   description: string;
-//   price: number;
-//   category: string;
-//   image: string;
-//   ratings?: string;
-//   quantity?: number;
-// };
+export interface ICarts {
+  _id: string;
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  image: string;
+  ratings?: string;
+  quantity: number;
+}

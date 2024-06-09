@@ -8,7 +8,8 @@ type TCart = {
   price: number;
   description: string;
   image: string;
-  quantity?: number;
+  ratings: string;
+  quantity: number;
 };
 
 type TCartState = {
@@ -33,8 +34,26 @@ export const cartSlice = createSlice({
         state.cart.push({ ...action.payload, quantity: 1 });
       }
     },
+
+    minusCartItem: (state, action) => {
+      const currentItems = state.cart.findIndex(
+        (cart) => cart._id === action.payload
+      );
+      if (currentItems !== -1 && state.cart[currentItems].quantity! > 0) {
+        state.cart[currentItems].quantity! -= 1;
+      }
+    },
+
+    plusCartItem: (state, action) => {
+      const currentItems = state.cart.findIndex(
+        (cart) => cart._id === action.payload
+      );
+      if (currentItems !== -1) {
+        state.cart[currentItems].quantity! += 1;
+      }
+    },
   },
 });
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, minusCartItem, plusCartItem } = cartSlice.actions;
 export default cartSlice.reducer;

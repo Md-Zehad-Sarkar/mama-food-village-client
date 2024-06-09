@@ -1,6 +1,5 @@
 import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
-import Button from "./components/AddToCartButton";
 import AddToCartButton from "./components/AddToCartButton";
 import BuyNowButton from "./components/BuyNowButton";
 
