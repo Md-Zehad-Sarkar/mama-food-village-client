@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 type TCart = {
   _id: string;
@@ -52,8 +52,17 @@ export const cartSlice = createSlice({
         state.cart[currentItems].quantity! += 1;
       }
     },
+
+    removeCartItem: (state, action: PayloadAction<string>) => {
+      state.cart = state.cart.filter((cart) => cart._id !== action.payload);
+    },
+
+    clearCart: (state) => {
+      state.cart = [];
+    },
   },
 });
 
-export const { addToCart, minusCartItem, plusCartItem } = cartSlice.actions;
+export const { addToCart, minusCartItem, plusCartItem, removeCartItem, clearCart } =
+  cartSlice.actions;
 export default cartSlice.reducer;

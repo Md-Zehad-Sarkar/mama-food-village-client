@@ -6,8 +6,14 @@ import Image from "next/image";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-
-import { minusCartItem, plusCartItem } from "@/redux/features/cartSlice";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
+import {
+  clearCart,
+  minusCartItem,
+  plusCartItem,
+  removeCartItem,
+} from "@/redux/features/cartSlice";
 import { ICarts } from "@/types/products.type";
 import { taxRate } from "@/constant/prices";
 
@@ -33,12 +39,37 @@ const ShoppingCart = () => {
     dispatch(plusCartItem(id));
   };
 
+  // delete cart item
+  const handleDeleteCartItem = (id: string) => {
+    dispatch(removeCartItem(id));
+  };
+
+  // Clear Cart Items
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+
   return (
     <Container>
       <Box sx={{ maxWidth: "500px", width: "100%", margin: "auto" }}>
         <Typography variant="h4" component={"h4"} textAlign={"center"} mb={4}>
           Shopping Cart <ShoppingCartIcon fontSize="large" />
         </Typography>
+
+        <Box
+          sx={{
+            display: carts.length > 0 ? "flex" : "none",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: 1,
+          }}
+        >
+          <Typography fontWeight={600}>Clear Cart</Typography>
+
+          <Typography onClick={handleClearCart} component={Button}>
+            <RemoveShoppingCartIcon />
+          </Typography>
+        </Box>
         {carts && carts.length ? (
           <Box sx={{ border: "1px solid gray", padding: 2 }}>
             <Box
@@ -48,9 +79,10 @@ const ShoppingCart = () => {
                 alignItems: "center",
               }}
             >
-              <Typography fontWeight={600}>
+              <Typography fontWeight={600} mt={2}>
                 Total Payment : {Number((totalPrice + totalTax).toFixed(2))}
               </Typography>
+
               <Button
                 variant="contained"
                 sx={{ color: "white", fontWeight: 600 }}
@@ -74,6 +106,7 @@ const ShoppingCart = () => {
                     gap: "15px",
                     boxShadow: "1px 1px 1px 1px",
                     padding: 2,
+                    position: "relative",
                   }}
                 >
                   <Box>
@@ -119,6 +152,13 @@ const ShoppingCart = () => {
                       price: {(cart?.price * cart.quantity).toFixed(2)}
                     </Typography>
                   </Box>
+
+                  <Button
+                    onClick={() => handleDeleteCartItem(cart._id)}
+                    sx={{ position: "absolute", right: 0, top: 0 }}
+                  >
+                    <DeleteForeverIcon />
+                  </Button>
                 </Box>
               </Card>
             ))}
