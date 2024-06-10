@@ -1,17 +1,35 @@
 "use client";
 
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { Box, Card, Container, Typography } from "@mui/material";
+import { Box, Button, Card, Container, Typography } from "@mui/material";
 import Image from "next/image";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-
-import { minusCartItem, plusCartItem } from "@/redux/features/cartSlice";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
+import {
+  clearCart,
+  minusCartItem,
+  plusCartItem,
+  removeCartItem,
+} from "@/redux/features/cartSlice";
 import { ICarts } from "@/types/products.type";
+import { taxRate } from "@/constant/prices";
 
 const ShoppingCart = () => {
   const { cart: carts } = useAppSelector((state) => state.carts);
   const dispatch = useAppDispatch();
+
+  //total price for all items and total quantity
+  let totalPrice: number = 0;
+
+  carts.forEach((cart) => {
+    totalPrice += cart.quantity * cart.price;
+  });
+
+  // total tax for total prices
+  const totalTax = Number((totalPrice * taxRate).toFixed(2));
 
   const handleRemoveItem = (id: string) => {
     dispatch(minusCartItem(id));
@@ -21,14 +39,65 @@ const ShoppingCart = () => {
     dispatch(plusCartItem(id));
   };
 
+  // delete cart item
+  const handleDeleteCartItem = (id: string) => {
+    dispatch(removeCartItem(id));
+  };
+
+  // Clear Cart Items
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+
   return (
     <Container>
       <Box sx={{ maxWidth: "500px", width: "100%", margin: "auto" }}>
-        <Typography variant="h4" component={"h4"} textAlign={"center"} mb={8}>
-          Shopping Cart
+        <Typography variant="h4" component={"h4"} textAlign={"center"} mb={4}>
+          Shopping Cart <ShoppingCartIcon fontSize="large" />
         </Typography>
+
+        <Box
+          sx={{
+            display: carts.length > 0 ? "flex" : "none",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: 1,
+          }}
+        >
+          <Typography fontWeight={600}>Clear Cart</Typography>
+
+          <Typography onClick={handleClearCart} component={Button}>
+            <RemoveShoppingCartIcon />
+          </Typography>
+        </Box>
         {carts && carts.length ? (
           <Box sx={{ border: "1px solid gray", padding: 2 }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <Typography fontWeight={600} mt={2}>
+                Total Payment : {Number((totalPrice + totalTax).toFixed(2))}
+              </Typography>
+
+              <Button
+                variant="contained"
+                sx={{ color: "white", fontWeight: 600 }}
+              >
+                Proceed To Checkout
+              </Button>
+            </Box>
+            <Box
+              sx={{
+                border: "1px solid black",
+                borderStyle: "dashed",
+                marginTop: 3,
+                marginBottom: 1,
+              }}
+            ></Box>
             {carts?.map((cart: ICarts) => (
               <Card key={cart?._id} sx={{ marginBottom: "15px" }}>
                 <Box
@@ -36,7 +105,8 @@ const ShoppingCart = () => {
                     display: "flex",
                     gap: "15px",
                     boxShadow: "1px 1px 1px 1px",
-                    padding: 3,
+                    padding: 2,
+                    position: "relative",
                   }}
                 >
                   <Box>
@@ -82,9 +152,57 @@ const ShoppingCart = () => {
                       price: {(cart?.price * cart.quantity).toFixed(2)}
                     </Typography>
                   </Box>
+
+                  <Button
+                    onClick={() => handleDeleteCartItem(cart._id)}
+                    sx={{ position: "absolute", right: 0, top: 0 }}
+                  >
+                    <DeleteForeverIcon />
+                  </Button>
                 </Box>
               </Card>
             ))}
+
+            {/* styles for total payment area */}
+            <Box>
+              <Box
+                sx={{
+                  border: "1px solid black",
+                  borderStyle: "dashed",
+                  marginTop: 3,
+                  marginBottom: 1,
+                }}
+              ></Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Typography fontWeight={500}>Amount :</Typography>
+                <Typography>{totalPrice.toFixed(2)}</Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Typography fontWeight={500}>Tax Amount :</Typography>
+                <Typography>{totalTax}</Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Typography fontWeight={500}>Total Amount :</Typography>
+                <Typography>
+                  {Number((totalPrice + totalTax).toFixed(2))}
+                </Typography>
+              </Box>
+            </Box>
           </Box>
         ) : (
           <Typography

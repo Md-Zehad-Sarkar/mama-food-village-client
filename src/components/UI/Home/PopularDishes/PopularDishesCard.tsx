@@ -47,6 +47,7 @@ const PopularDishesCard = ({ food }: any) => {
         loading={loading}
         onClick={() => handleWhiteList(food)}
         variant="outlined"
+        disabled={!loading && isWhiteList?._id === food._id}
         sx={{
           position: "absolute",
           right: 4,
@@ -57,7 +58,11 @@ const PopularDishesCard = ({ food }: any) => {
             !loading && isWhiteList?._id === food._id ? "black" : "white",
         }}
       >
-        <FavoriteBorderIcon />
+        <FavoriteBorderIcon
+          style={{
+            color: !loading && isWhiteList?._id === food._id ? "white" : "",
+          }}
+        />
       </LoadingButton>
 
       <Box

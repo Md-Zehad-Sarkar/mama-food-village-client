@@ -36,7 +36,7 @@ const whiteListSlice = createSlice({
       }
     },
 
-    removeWhiteListProduct: (state, action) => {
+    removeWhiteListProduct: (state, action: PayloadAction<string>) => {
       state.products = state.products.filter(
         (product) => product._id !== action.payload
       );
