@@ -26,6 +26,10 @@ const NavAppBar = () => {
     (state) => state.whiteListProducts
   );
 
+  const { cart: carts } = useAppSelector((state) => state.carts);
+
+  const totalCartQuantity = carts.reduce((acc, cart) => acc + cart.quantity, 0);
+
   return (
     <Box>
       <Stack
@@ -63,7 +67,7 @@ const NavAppBar = () => {
         </IconButton>
         <IconButton size="medium" aria-label="shopping" color="inherit">
           <Link href={"/cart"}>
-            <StyledBadge badgeContent={0} color="secondary">
+            <StyledBadge badgeContent={totalCartQuantity} color="secondary">
               <AddShoppingCartIcon />
             </StyledBadge>
           </Link>
