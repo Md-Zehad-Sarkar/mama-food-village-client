@@ -25,7 +25,7 @@ const CommonItemsMenuButton = ({ allButton }: any) => {
             ":hover": { bgcolor: "primary.main" },
           }}
         >
-          <Link href={`${button.toLowerCase()}`}>{button}</Link>
+          <Link href={`/menu/${button.toLowerCase()}`}>{button}</Link>
         </Button>
       ))}
     </Stack>

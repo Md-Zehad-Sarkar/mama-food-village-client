@@ -4,10 +4,18 @@ import { useGetAllFoodsQuery } from "@/redux/api/foods/foodApi";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import { useAppDispatch } from "@/redux/hooks";
+import { addToCart } from "@/redux/features/cartSlice";
+import { TFood } from "@/types/products.type";
 
 const TopRecipeDataItems = () => {
-  const { data, isLoading } = useGetAllFoodsQuery({});
+  const dispatch = useAppDispatch();
+  const { data } = useGetAllFoodsQuery({});
   const topRecipes = data?.data;
+
+  const handleAddToCart = (recipe: TFood) => {
+    dispatch(addToCart(recipe));
+  };
 
   return (
     <Grid container spacing={4}>
@@ -24,7 +32,9 @@ const TopRecipeDataItems = () => {
               alignItems: "end",
             }}
           >
-            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+            <Box
+              sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}
+            >
               <Image
                 src={recipes?.image}
                 alt="recipes image"
@@ -41,7 +51,10 @@ const TopRecipeDataItems = () => {
                 </Typography>
               </Box>
             </Box>
-            <Typography component={Button}>
+            <Typography
+              onClick={() => handleAddToCart(recipes)}
+              component={Button}
+            >
               <ShoppingBasketIcon />
             </Typography>
           </Box>

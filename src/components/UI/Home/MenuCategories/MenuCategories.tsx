@@ -35,7 +35,7 @@ const MenuCategories = () => {
       {categories.map((category, i) => (
         <Box key={i}>
           <Link
-            href={`${category?.name.trim().toLowerCase().replace(/\s+/g, "-")}`}
+            href={`/menu/${category?.name.trim().toLowerCase().replace(/\s+/g, "-")}`}
           >
             <Box
               sx={{

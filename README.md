@@ -6,6 +6,7 @@
 - TypeScript v-^5
 - Material UI
 - Tailwind
+- Redux
 
 ## Run the project on Development
 

@@ -28,11 +28,11 @@ const TopRecepies = () => {
             letterSpacing={2}
             sx={{ ":hover": { color: "primary.main" } }}
             component={Link}
-            href="/all-recipes"
+            href="/shop"
           >
             See All
+            <NavigateNextIcon sx={{ ":hover": { color: "primary.main" } }} />
           </Typography>
-          <NavigateNextIcon sx={{ ":hover": { color: "primary.main" } }} />
         </Box>
       </Stack>
       <Grid container spacing={3}>
