@@ -63,8 +63,7 @@ const PopularDishesCard = ({ food }: any) => {
           top: 4,
           height: "30px",
           ":hover": { background: "black" },
-          bgcolor:
-            !loading && isWhiteList?._id === food._id ? "black" : "white",
+          bgcolor: !loading && isWhiteList?._id === food._id ? "black" : "white",
         }}
       >
         <FavoriteBorderIcon
@@ -101,10 +100,7 @@ const PopularDishesCard = ({ food }: any) => {
             ${food?.price}
           </Typography>
 
-          <Typography
-            onClick={() => handleAddToCart(food)}
-            component={Button}
-          >
+          <Typography onClick={() => handleAddToCart(food)} component={Button}>
             <ShoppingBasketIcon />
           </Typography>
         </Stack>
