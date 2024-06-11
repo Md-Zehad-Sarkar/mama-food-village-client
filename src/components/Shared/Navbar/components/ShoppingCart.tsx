@@ -21,6 +21,8 @@ const ShoppingCart = () => {
   const { cart: carts } = useAppSelector((state) => state.carts);
   const dispatch = useAppDispatch();
 
+  console.log("menu to cart", carts);
+
   //total price for all items and total quantity
   let totalPrice: number = 0;
 
