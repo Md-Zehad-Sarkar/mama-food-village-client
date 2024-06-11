@@ -2,6 +2,7 @@ import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import heroImages from "@/assets/images/heroImages.jpg";
 import Image from "next/image";
 import HeroSectionOrderButton from "./HeroSectionOrderButton";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -99,18 +100,20 @@ const HeroSection = () => {
           </Stack>
         </Box>
       </Box>
-      <Button
-        variant="contained"
-        sx={{
-          position: "absolute",
-          bottom: "-8px",
-          left: "50%",
-          justifyContent: "center",
-        }}
-        style={{ color: "primary.main", fontWeight: 500 }}
-      >
-        Menus
-      </Button>
+      <Link href={"/menu"}>
+        <Button
+          variant="contained"
+          sx={{
+            position: "absolute",
+            bottom: "-8px",
+            left: "50%",
+            justifyContent: "center",
+          }}
+          style={{ color: "primary.main", fontWeight: 500 }}
+        >
+          Menus
+        </Button>
+      </Link>
     </Container>
   );
 };

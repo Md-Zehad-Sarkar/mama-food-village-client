@@ -1,9 +1,12 @@
-'use client'
+"use client";
 import { Button } from "@mui/material";
+import { useRouter } from "next/navigation";
 
 const HeroSectionOrderButton = () => {
+  const router = useRouter();
+  
   const handleOrder = () => {
-    console.log("click");
+    router.push("/shop");
   };
   return (
     <Button

@@ -1,5 +1,3 @@
-// "use client";
-
 import { Box, Typography } from "@mui/material";
 import ReviewsSlider from "./ReviewsSlider";
 
@@ -15,7 +13,7 @@ const ClientReviews = () => {
         textAlign={"center"}
         my={4}
       >
-        What your client says?
+        What Our Client Say&apos;s?
       </Typography>
 
       <ReviewsSlider />
