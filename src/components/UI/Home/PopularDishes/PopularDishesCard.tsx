@@ -15,9 +15,12 @@ import { addWhiteListedProduct } from "@/redux/features/whiteListSlice";
 import { TFood } from "@/types/products.type";
 import { useMemo, useState } from "react";
 import LoadingButton from "@mui/lab/LoadingButton"; // loading button
+import { addToCart } from "@/redux/features/cartSlice";
+import { useRouter } from "next/navigation";
 
 const PopularDishesCard = ({ food }: any) => {
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
   const dispatch = useAppDispatch();
   const { products } = useAppSelector((state) => state.whiteListProducts);
 
@@ -33,6 +36,12 @@ const PopularDishesCard = ({ food }: any) => {
     setTimeout(() => {
       setLoading(false);
     }, 2000);
+  };
+
+  // items add to card
+  const handleAddToCart = (food: TFood) => {
+    dispatch(addToCart(food));
+    router.push("/cart");
   };
 
   return (
@@ -92,7 +101,10 @@ const PopularDishesCard = ({ food }: any) => {
             ${food?.price}
           </Typography>
 
-          <Typography component={Button}>
+          <Typography
+            onClick={() => handleAddToCart(food)}
+            component={Button}
+          >
             <ShoppingBasketIcon />
           </Typography>
         </Stack>
