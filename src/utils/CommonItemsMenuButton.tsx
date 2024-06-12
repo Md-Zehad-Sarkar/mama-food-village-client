@@ -1,8 +1,14 @@
 import { Button, Stack } from "@mui/material";
-import Link from "next/link";
-import React from "react";
 
-const CommonItemsMenuButton = ({ allButton }: any) => {
+type TCommonItemsMenuButtonProps = {
+  allButton: string[];
+  onSelect: (category: string) => void;
+};
+
+const CommonItemsMenuButton = ({
+  allButton,
+  onSelect,
+}: TCommonItemsMenuButtonProps) => {
   return (
     <Stack
       direction={{ xs: "column", md: "row" }}
@@ -11,7 +17,7 @@ const CommonItemsMenuButton = ({ allButton }: any) => {
       justifyContent="center"
       alignItems={"center"}
     >
-      {allButton.map((button: any, i: any) => (
+      {allButton.map((button: string, i: any) => (
         <Button
           key={i}
           variant="outlined"
@@ -24,8 +30,10 @@ const CommonItemsMenuButton = ({ allButton }: any) => {
             color: "black",
             ":hover": { bgcolor: "primary.main" },
           }}
+          onClick={() => onSelect(button)}
         >
-          <Link href={`/menu/${button.toLowerCase()}`}>{button}</Link>
+          {button}
+          {/* <Link href={`/menu/${button.toLowerCase()}`}>{button}</Link> */}
         </Button>
       ))}
     </Stack>
