@@ -5,8 +5,8 @@ import { tagTypes } from "@/redux/tagTypes";
 const foodApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getAllFoods: builder.query({
-      query: () => ({
-        url: "/foods",
+      query: (args) => ({
+        url: `/foods?category=${args}`,
         method: "GET",
       }),
       transformResponse: (response: any) => {
@@ -14,7 +14,7 @@ const foodApi = baseApi.injectEndpoints({
           data: response?.data,
         };
       },
-      providesTags:[tagTypes.foods]
+      providesTags: [tagTypes.foods],
     }),
   }),
 });

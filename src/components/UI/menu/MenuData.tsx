@@ -4,8 +4,12 @@ import { useGetAllFoodsQuery } from "@/redux/api/foods/foodApi";
 import { Box, Grid } from "@mui/material";
 import MenuCard from "./MenuCard";
 
-const MenuData = () => {
-  const { data } = useGetAllFoodsQuery(undefined);
+type TMenuDataProps = {
+  category: string;
+};
+
+const MenuData = ({ category }: TMenuDataProps) => {
+  const { data } = useGetAllFoodsQuery(category);
   const menuItems = data?.data;
 
   return (
